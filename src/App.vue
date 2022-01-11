@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <Main />
+    <button @click="searchedMovies">api</button>
   </div>
 </template>
 
@@ -19,11 +20,22 @@ export default {
   },
   data: function() {
     return {
-      userSearchText: '',
+      userSearchText: 'vita',
+      moviesArray: []
     }
   },
   methods: {
-    
+    searchedMovies: function() {
+      axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          api_key: '594f744473899f8902a8ed104f7d9a22',
+          query: this.userSearchText
+        }
+      })
+      .then((response) => {
+        console.log(response)
+      });
+    }
   }
 };
 </script>
