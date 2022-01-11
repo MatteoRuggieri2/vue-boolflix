@@ -22,11 +22,12 @@ export default {
 <style lang='scss' scoped>
 
     header {
+        height: 60px;
         background-color: black;
         color: white;
         display: flex;
         justify-content: space-around;
-        padding: 20px 0;
+        align-items: center;
 
         .input-container {
 
