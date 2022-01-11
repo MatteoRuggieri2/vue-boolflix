@@ -6,8 +6,8 @@
         </div>
 
         <div class="input-container">
-            <input type="text" placeholder="Cerca un film">
-            <button>Cerca</button>
+            <input v-model="userText" type="text" placeholder="Cerca un film">
+            <button @click="$emit('getUserText', userText)">Cerca</button>
         </div>
 
     </header>
@@ -15,7 +15,12 @@
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    data: function() {
+        return {
+            userText: '',
+        }
+    }
 }
 </script>
 
