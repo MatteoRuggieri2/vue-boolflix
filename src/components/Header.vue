@@ -8,7 +8,7 @@
         </div>
 
         <div class="input-container">
-            <input v-model="userText" type="text" placeholder="Cerca un film">
+            <input @keyup.enter="$emit('getUserText', userText)" v-model="userText" type="text" placeholder="Cerca un film">
             <button @click="$emit('getUserText', userText)">Cerca</button>
         </div>
 
