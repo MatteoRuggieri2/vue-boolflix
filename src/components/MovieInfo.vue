@@ -15,11 +15,12 @@
             <li v-else>{{ singleMovieObject.original_language }}</li>
 
             <!-- Vote -->
-            <li>{{ numberOfStars(singleMovieObject.vote_average) }}</li>
+            <li>{{ fullStars }}</li>
             <li>
-                <span v-for="(number, index) in numberOfStars(singleMovieObject.vote_average)" :key="index + 10"><i class="fas fa-star"></i></span>
-                <span v-for="(number, index) in numberOfEmptyStars(numberOfStars(singleMovieObject.vote_average))" :key="index + 20"><i class="far fa-star"></i></span>
-                <!-- ATTENZIONE!  Il +10 e il +20 nella key, servono per avere numeri univoci, quindi non ripetuti tra di loro -->
+                <span v-for="(number, index) in 5" :key="index">
+                    <span v-if="(number <= fullStars)"><i class="fas fa-star"></i></span>
+                    <span v-else><i class="far fa-star"></i></span>
+                </span>
             </li>
 
         </ul>
@@ -35,6 +36,7 @@ export default {
     data: function() {
         return {
             flagsPathArray: [ 'it.png', 'en.png', 'fr.png' ],
+            fullStars: this.numberOfStars(this.singleMovieObject.vote_average)   // ex. 4
         }
     },
     methods: {
