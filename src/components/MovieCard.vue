@@ -9,11 +9,11 @@
         </div>
 
         <div v-else class="poster-not-found">
-            <img src="../assets/img/img-notfound.jpg" alt="">
+            <img src="../assets/img/img-notfound.jpg" alt="Poster not found">
         </div>
 
         <!-- Movie Info -->
-        <ul >
+        <ul>
 
             <!-- Titles -->
             <li>{{ singleMovie.title || singleMovie.name }}</li>
@@ -28,7 +28,7 @@
             <li v-else>{{ singleMovie.original_language }}</li>
 
             <!-- Vote -->
-            <li>{{ singleMovie.vote_average }}</li>
+            <li>{{ numberOfStar(singleMovie.vote_average) }}</li>
         </ul>
 
     </div>
@@ -54,6 +54,12 @@ export default {
             }
             
         },
+
+        numberOfStar: function(decimalVote) {
+            const stars = decimalVote / 2
+            
+            return Math.round(stars);
+        }
     }
 }
 </script>
