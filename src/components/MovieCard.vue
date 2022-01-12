@@ -28,7 +28,12 @@
             <li v-else>{{ singleMovie.original_language }}</li>
 
             <!-- Vote -->
-            <li>{{ numberOfStar(singleMovie.vote_average) }}</li>
+            <li>{{ numberOfStars(singleMovie.vote_average) }}</li>
+            <li>
+                <span v-for="(number, index) in numberOfStars(singleMovie.vote_average)" :key="index"><i class="fas fa-star"></i></span>
+                <span v-for="(number, index) in numberOfEmptyStars(numberOfStars(singleMovie.vote_average))" :key="index"><i class="far fa-star"></i></span>
+            </li>
+
         </ul>
 
     </div>
@@ -55,10 +60,16 @@ export default {
             
         },
 
-        numberOfStar: function(decimalVote) {
+        numberOfStars: function(decimalVote) {
             const stars = decimalVote / 2
             
             return Math.round(stars);
+        },
+
+        numberOfEmptyStars: function(numberOfStars) {
+            const emptyStars = 5 - numberOfStars
+            
+            return emptyStars;
         }
     }
 }
