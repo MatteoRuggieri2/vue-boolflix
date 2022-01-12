@@ -1,22 +1,23 @@
 <template>
     <main>
         <div class="wrapper">
-            
-            <!-- Singolo Film -->
-            <ul v-for="(movie, index) in apiObjects" :key="index">
-                <li>{{ movie.title }}</li>
-                <li>{{ movie.original_title }}</li>
-                <li>{{ movie.original_language }}</li>
-                <li>{{ movie.vote_average }}</li>
-            </ul>
+
+            <!-- Films -->
+            <MovieCard v-for="(movie, index) in apiObjects" :key="index" :singleMovie="movie" />
 
         </div>
     </main>
 </template>
 
 <script>
+
+import MovieCard from "./MovieCard.vue";
+
 export default {
     name: 'Main',
+    components: {
+        MovieCard,
+    },
     props: {
         apiObjects: Array
     }
@@ -29,13 +30,5 @@ export default {
         background-color: rgb(44, 44, 44);
         color: white;
         overflow-y: auto;
-
-        ul {
-            border: 3px solid darkcyan;
-            
-            li {
-                color: white;
-            }
-        }
     }
 </style>
