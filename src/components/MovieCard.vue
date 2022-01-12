@@ -30,8 +30,8 @@
             <!-- Vote -->
             <li>{{ numberOfStars(singleMovie.vote_average) }}</li>
             <li>
-                <span v-for="(number, index) in numberOfStars(singleMovie.vote_average)" :key="index"><i class="fas fa-star"></i></span>
-                <span v-for="(number, index) in numberOfEmptyStars(numberOfStars(singleMovie.vote_average))" :key="index"><i class="far fa-star"></i></span>
+                <span v-for="(number, index) in numberOfStars(singleMovie.vote_average)" :key="index + 10"><i class="fas fa-star"></i></span>
+                <span v-for="(number, index) in numberOfEmptyStars(numberOfStars(singleMovie.vote_average))" :key="index + 20"><i class="far fa-star"></i></span>
             </li>
 
         </ul>
