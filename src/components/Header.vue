@@ -2,7 +2,9 @@
     <header>
 
         <div>
+            <i class="fas fa-star"></i>
             LOGO
+            <i class="fas fa-star"></i>
         </div>
 
         <div class="input-container">
