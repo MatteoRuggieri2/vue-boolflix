@@ -4,7 +4,7 @@
 
             <!-- Titles -->
             <li><span class="info-title">Titolo: </span>{{ singleMovieObject.title || singleMovieObject.name }}</li>
-            <li><span class="info-title">Titolo originale: </span>{{ singleMovieObject.original_title || singleMovieObject.original_name }}</li>
+            <li v-if="filmTitleComparison() || seriesNameComparison()"><span class="info-title">Titolo originale: </span>{{ singleMovieObject.original_title || singleMovieObject.original_name }}</li>
             
             <!-- Flag -->
             <li v-if="flagImgFounder()">
@@ -49,6 +49,9 @@ export default {
         }
     },
     methods: {
+
+        // Questa funzione serve a verificare se è disponibile l'immagine della bandiera.
+        // return: true se è disponibile.
         flagImgFounder: function() {
             if(this.flagsPathArray.includes(this.singleMovieObject.original_language)) {
                 return true;
@@ -58,16 +61,45 @@ export default {
             
         },
 
+        // Questa funzione serve a verificare quante sono le stelle piene.
+        // Arrotonda per difetto (< 0.5) e per eccesso (> 0.5).
+        // agomento: Numero decimale da 1 a 10.
+        // return: ritorna il numero di stelle piene.
         numberOfStars: function(decimalVote) {
             const stars = decimalVote / 2
             
             return Math.round(stars);
         },
 
+        // Questa funzione serve a verificare quante sono le stelle vuote.
+        // agomento: Numero intero di stelle da 1 a 5.
+        // return: ritorna il numero di stelle vuote.
         numberOfEmptyStars: function(numberOfStars) {
             const emptyStars = 5 - numberOfStars
             
             return emptyStars;
+        },
+
+        // Questa funzione serve a verificare se il titolo del film è diverso dal
+        // titolo originale.
+        // return: true se è diverso, e quindi deve stamparlo.
+        filmTitleComparison: function() {
+            if(this.singleMovieObject.original_title !== this.singleMovieObject.title) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+
+        // Questa funzione serve a verificare se il nome della serie TV è diverso dal
+        // nome originale.
+        // return: true se è diverso, e quindi deve stamparlo.
+        seriesNameComparison: function() {
+            if(this.singleMovieObject.original_name !== this.singleMovieObject.name) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }
