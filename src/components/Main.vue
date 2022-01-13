@@ -5,13 +5,13 @@
             <!-- Films -->
             <h2>FILM</h2>
             <div class="films-container">
-                <MovieCard v-for="(movie, index) in apiFilmObjects" :key="index" :singleMovie="movie" />
+                <MovieCard v-for="(movie, index) in apiFilmObjects" :key="index" :singleMovie="movie" type="movie"/>
             </div>
 
             <!-- Series TV -->
             <h2>SERIE TV</h2>
             <div class="series-container">
-                <MovieCard v-for="(series, index) in apiTvSeriesObjects" :key="index" :singleMovie="series" />
+                <MovieCard v-for="(series, index) in apiTvSeriesObjects" :key="index" :singleMovie="series" type="tv" />
             </div>
         </div>
     </main>

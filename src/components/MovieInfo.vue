@@ -26,6 +26,14 @@
                 </span>
             </li>
 
+            <!-- Cast -->
+            <li>
+                <span class="info-title">Attori: </span>
+                <span v-for="(people, index) in cast" :key="people.id">
+                    <span v-if="(index < 5)">{{ people.name }}, </span>
+                </span>
+            </li>
+
             <!-- Overview -->
             <li>
                 <span class="info-title">Trama: </span>
@@ -41,7 +49,8 @@
 export default {
     name: 'MovieInfo',
     props: {
-        singleMovieObject: Object
+        singleMovieObject: Object,
+        cast: Array
     },
     data: function() {
         return {

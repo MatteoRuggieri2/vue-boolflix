@@ -1,7 +1,7 @@
 <template>
 
     <!-- Single Movie -->
-    <div class="movie-card">
+    <div @mouseenter="getCast()" class="movie-card">
 
         <!-- Poster -->
         <div v-if="(singleMovie.poster_path !== null)" class="poster">
@@ -12,13 +12,14 @@
             <img src="../assets/img/img-notfound.jpg" alt="Poster not found">
         </div>
 
-        <MovieInfo :singleMovieObject="singleMovie" />
+        <MovieInfo :singleMovieObject="singleMovie" :cast="castArray" />
 
     </div>
 </template>
 
 <script>
 
+import axios from 'axios';
 import MovieInfo from "./MovieInfo.vue";
 
 export default {
@@ -27,8 +28,30 @@ export default {
         MovieInfo,
     },
     props: {
-        singleMovie: Object
+        singleMovie: Object,
+        type: String
     },
+    data: function() {
+        return {
+            castArray: [],
+        }
+    },
+    methods: {
+        
+        // TEST
+        getCast: function() {
+            // Chiamata API per gli attori dei film
+            axios.get(`https://api.themoviedb.org/3/${this.type}/${this.singleMovie.id}/credits`, {
+                params: {
+                api_key: '594f744473899f8902a8ed104f7d9a22',
+                language: "it"
+                }
+            })
+            .then((response) => {
+                this.castArray = response.data.cast;
+            });
+        }
+    }
 }
 </script>
 
