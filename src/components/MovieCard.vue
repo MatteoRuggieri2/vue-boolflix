@@ -35,17 +35,36 @@ export default {
 <style lang="scss" scoped>
 
     .movie-card {
+        width: 15vW;
+        flex-shrink: 0;
+        position: relative;
+
+        // .movie-info {
+        //     display: none;
+        // }
+
+        &:hover .poster,
+        &:hover .poster-not-found {
+            filter: brightness(0.1);
+        }
+
+        &:hover .movie-info {
+            display: block;
+        }
+
+        // test
         border: 3px solid darkcyan;
 
         .poster-not-found {
-            width: 342px;
-            height: 513px;
+            // width: 342px;
+            max-width: 100%;
+            // height: 513px;
 
             img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
+                // width: 100%;
+                // height: 100%;
+                // object-fit: cover;
+                // object-position: center;
             }
         }
     }

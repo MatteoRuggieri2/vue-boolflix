@@ -3,14 +3,14 @@
         <div class="wrapper">
 
             <!-- Films -->
+            <h2>Film</h2>
             <div class="films-container">
-                <h2>Film</h2>
                 <MovieCard v-for="(movie, index) in apiFilmObjects" :key="index" :singleMovie="movie" />
             </div>
 
             <!-- Series TV -->
+            <h2>Serie TV</h2>
             <div class="series-container">
-                <h2>Serie TV</h2>
                 <MovieCard v-for="(series, index) in apiTvSeriesObjects" :key="index" :singleMovie="series" />
             </div>
         </div>
@@ -43,10 +43,18 @@ export default {
         .wrapper {
 
             .films-container {
+                display: flex;
+                overflow-x: auto;
+
+                // test
                 border: 3px solid red;
             }
 
             .series-container {
+                display: flex;
+                overflow-x: auto;
+
+                // test
                 border: 3px solid yellow;
             }
         }
