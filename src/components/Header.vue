@@ -8,7 +8,7 @@
         </div>
 
         <div class="input-container">
-            <input @keyup.enter="$emit('getUserText', userText)" v-model="userText" type="text" placeholder="Cerca un film">
+            <input @keyup.enter="$emit('getUserText', userText)" v-model="userText" type="text" placeholder="CERCA UN FILM">
             <span @click="$emit('getUserText', userText)" class="lens-icon"><i class="fas fa-search"></i></span>
         </div>
 
@@ -27,6 +27,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@import '../style/variables.scss';
 
     header {
         height: 60px;
@@ -50,9 +51,11 @@ export default {
 
             input[type=text] {
                 margin-right: 10px;
-                padding: 5px 10px;
+                padding: 2px 10px;
                 border-radius: 10px;
                 border: none;
+                font-family: $primary_text_font;
+                font-size: 14px;
             }
 
             .lens-icon {

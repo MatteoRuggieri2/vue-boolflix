@@ -95,4 +95,8 @@ export default {
 <style lang="scss">
 @import './style/general.scss';
 
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;700&display=swap');
+
 </style>

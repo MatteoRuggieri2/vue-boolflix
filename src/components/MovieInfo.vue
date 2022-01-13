@@ -3,12 +3,12 @@
         <ul>
 
             <!-- Titles -->
-            <li>Titolo: {{ singleMovieObject.title || singleMovieObject.name }}</li>
-            <li>Titolo originale: {{ singleMovieObject.original_title || singleMovieObject.original_name }}</li>
+            <li><span class="info-title">Titolo: </span>{{ singleMovieObject.title || singleMovieObject.name }}</li>
+            <li><span class="info-title">Titolo originale: </span>{{ singleMovieObject.original_title || singleMovieObject.original_name }}</li>
             
             <!-- Flag -->
             <li v-if="flagImgFounder()">
-                <span>Language: </span>
+                <span class="info-title">Language: </span>
                 <span class="flag-container">
                     <img :src="require('../assets/img/' + singleMovieObject.original_language + '.png')" :alt="singleMovieObject.original_language + ' flag'">
                 </span>
@@ -18,16 +18,16 @@
             <!-- Vote -->
             <!-- <li>{{ fullStars }}</li> -->
             <li>
-                <span>Voto: </span>
+                <span class="info-title">Voto: </span>
                 <span v-for="(number, index) in 5" :key="index">
-                    <span v-if="(number <= fullStars)"><i class="fas fa-star"></i></span>
-                    <span v-else><i class="far fa-star"></i></span>
+                    <span v-if="(number <= fullStars)" class="full-star-icon"><i class="fas fa-star"></i></span>
+                    <span v-else class="empty-star-icon"><i class="far fa-star"></i></span>
                 </span>
             </li>
 
             <!-- Overview -->
             <li>
-                Trama: {{ singleMovieObject.overview }}
+                <span class="info-title">Trama: </span>{{ singleMovieObject.overview }}
             </li>
 
         </ul>
@@ -72,6 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../style/variables.scss';
 
     .movie-info {
         display: none;
@@ -79,16 +80,33 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
+        font-family: $primary_text_font;
 
         ul {
             list-style-type: none;
             
             li {
                 color: white;
+                font-size: 14px;
+
+                .info-title {
+                    // margin-right: 10px;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
 
                 .flag-container {
                     display: inline-block;
                     width: 30px;
+                }
+
+                .full-star-icon {
+                    color: orange;
+                    cursor: pointer;
+                }
+
+                .empty-star-icon {
+                    cursor: pointer;
                 }
             }
         }
