@@ -27,7 +27,9 @@
 
             <!-- Overview -->
             <li>
-                <span class="info-title">Trama: </span>{{ singleMovieObject.overview }}
+                <span class="info-title">Trama: </span>
+                <span v-if="(singleMovieObject.overview.length > 0)">{{ singleMovieObject.overview }}</span>
+                <span v-else>Non disponibile</span>
             </li>
 
         </ul>
