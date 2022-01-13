@@ -38,7 +38,8 @@ export default {
         axios.get('https://api.themoviedb.org/3/search/movie', {
           params: {
             api_key: this.apiKey,
-            query: this.userSearchText
+            query: this.userSearchText,
+            language: "it"
           }
         })
         .then((response) => {
@@ -54,7 +55,8 @@ export default {
         axios.get('https://api.themoviedb.org/3/search/tv', {
           params: {
             api_key: this.apiKey,
-            query: this.userSearchText
+            query: this.userSearchText,
+            language: "it"
           }
         })
         .then((response) => {
@@ -68,7 +70,8 @@ export default {
     // Chiamata API per i film consigliati
     axios.get('https://api.themoviedb.org/3/discover/movie', {
       params: {
-        api_key: this.apiKey
+        api_key: this.apiKey,
+        language: "it"
       }
     })
     .then((response) => {
@@ -78,7 +81,8 @@ export default {
     // Chiamata API per le serie TV consigliate
     axios.get('https://api.themoviedb.org/3/discover/tv', {
       params: {
-        api_key: this.apiKey
+        api_key: this.apiKey,
+        language: "it"
       }
     })
     .then((response) => {

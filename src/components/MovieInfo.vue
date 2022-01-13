@@ -16,13 +16,18 @@
             <li v-else>{{ singleMovieObject.original_language }}</li>
 
             <!-- Vote -->
-            <li>{{ fullStars }}</li>
+            <!-- <li>{{ fullStars }}</li> -->
             <li>
                 <span>Voto: </span>
                 <span v-for="(number, index) in 5" :key="index">
                     <span v-if="(number <= fullStars)"><i class="fas fa-star"></i></span>
                     <span v-else><i class="far fa-star"></i></span>
                 </span>
+            </li>
+
+            <!-- Overview -->
+            <li>
+                Trama: {{ singleMovieObject.overview }}
             </li>
 
         </ul>

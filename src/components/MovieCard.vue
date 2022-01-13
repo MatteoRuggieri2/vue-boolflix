@@ -38,6 +38,8 @@ export default {
         width: 13vW;
         flex-shrink: 0;
         position: relative;
+        overflow-y: auto;
+        background-color: black;
 
         .poster,
         .poster-not-found {

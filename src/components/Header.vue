@@ -9,7 +9,7 @@
 
         <div class="input-container">
             <input @keyup.enter="$emit('getUserText', userText)" v-model="userText" type="text" placeholder="Cerca un film">
-            <button @click="$emit('getUserText', userText)">Cerca</button>
+            <span @click="$emit('getUserText', userText)" class="lens-icon"><i class="fas fa-search"></i></span>
         </div>
 
     </header>
@@ -45,12 +45,19 @@ export default {
         }
 
         .input-container {
+            display: flex;
+            align-items: center;
 
             input[type=text] {
-                margin-right: 5px;
+                margin-right: 10px;
+                padding: 5px 10px;
+                border-radius: 10px;
+                border: none;
             }
 
-            button {
+            .lens-icon {
+                display: inline-block;
+                padding-top: 4px;
                 cursor: pointer;
             }
         }
