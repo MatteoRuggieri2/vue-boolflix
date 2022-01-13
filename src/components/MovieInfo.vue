@@ -30,7 +30,8 @@
             <li>
                 <span class="info-title">Attori: </span>
                 <span v-for="(people, index) in cast" :key="people.id">
-                    <span v-if="(index < 5)">{{ people.name }}, </span>
+                    <span v-if="(index < 4)">{{ people.name }}, </span>
+                    <span v-else-if="(index === 4)">{{ people.name }} ...</span>
                 </span>
             </li>
 
