@@ -35,6 +35,15 @@
                 </span>
             </li>
 
+            <!-- Generi -->
+            <li>
+                <span class="info-title">Generi: </span>
+                <span v-for="(genre, index) in genres" :key="genre.id">
+                    <span v-if="(index < genres.length - 1)">{{ genre.name }}, </span>
+                    <span v-else-if="(index === genres.length - 1)">{{ genre.name }}.</span>
+                </span>
+            </li>
+
             <!-- Overview -->
             <li>
                 <span class="info-title">Trama: </span>
@@ -51,7 +60,8 @@ export default {
     name: 'MovieInfo',
     props: {
         singleMovieObject: Object,
-        cast: Array
+        cast: Array,
+        genres: Array
     },
     data: function() {
         return {

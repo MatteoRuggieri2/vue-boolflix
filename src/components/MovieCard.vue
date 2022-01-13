@@ -12,7 +12,7 @@
             <img src="../assets/img/img-notfound.jpg" alt="Poster not found">
         </div>
 
-        <MovieInfo :singleMovieObject="singleMovie" :cast="castArray" />
+        <MovieInfo :singleMovieObject="singleMovie" :cast="castArray" :genres="movieGenres" />
 
     </div>
 </template>
@@ -34,6 +34,7 @@ export default {
     data: function() {
         return {
             castArray: [],
+            movieGenres: []
         }
     },
     methods: {
@@ -49,6 +50,16 @@ export default {
             })
             .then((response) => {
                 this.castArray = response.data.cast;
+            });
+
+            // Chiamata API per il genere dei film e delle serie
+            axios.get(`https://api.themoviedb.org/3/${this.type}/${this.singleMovie.id}`, {
+                params: {
+                api_key: '594f744473899f8902a8ed104f7d9a22'
+                }
+            })
+            .then((response) => {
+                this.movieGenres = response.data.genres;
             });
         }
     }
