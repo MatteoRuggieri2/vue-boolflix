@@ -105,9 +105,33 @@ export default {
 
 <style lang="scss">
 @import './style/general.scss';
+@import './style/variables.scss';
 
 // Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;700&display=swap');
+
+// Personalizzazione scrollbar
+  ::-webkit-scrollbar{
+    width:0.2em;
+    height:0.2em;
+    background: rgba(255, 255, 255, 0);
+  }
+
+  ::-webkit-scrollbar-thumb{
+    border-radius:4px;
+    background-color: rgb(112, 0, 0);
+    border: none;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+    background-color: $primary_color;
+    border: none;
+  }
+  
+  ::-webkit-scrollbar-thumb:active{
+    background-color:rgb(143, 0, 0);
+    border: none;
+  }
 
 </style>

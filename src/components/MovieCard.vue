@@ -39,8 +39,9 @@ export default {
     },
     methods: {
         
-        // TEST
+        // Questa funzione serve a prendere gli attori e i generi dei film e delle serie TV
         getCast: function() {
+
             // Chiamata API per gli attori dei film
             axios.get(`https://api.themoviedb.org/3/${this.type}/${this.singleMovie.id}/credits`, {
                 params: {
