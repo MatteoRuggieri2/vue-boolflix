@@ -2,8 +2,16 @@
     <header>
 
         <div class="header-left">
-            <div class="logo">
+            <div @click="$emit('backHome', true)" class="logo">
                 <img src="../assets/img/logo_netflix.png" alt="Logo Netflix">
+            </div>
+
+            <div class="links-list">
+                <ul>
+                    <li @click="$emit('backHome', true)">Home</li>
+                    <li>Serie TV</li>
+                    <li>Film</li>
+                </ul>
             </div>
         </div>
 
@@ -39,9 +47,32 @@ export default {
         align-items: center;
 
         .header-left {
+            display: flex;
+            align-items: center;
 
             .logo {
                 width: 100px;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+
+            .links-list {
+
+                ul {
+                    list-style-type: none;
+                    display: flex;
+
+                    li {
+                        margin: 0 10px;
+                        font-family: $title_text_font;
+                        font-size: 16px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: rgb(209, 209, 209);
+                        }
+                    }
+                }
             }
         }
 

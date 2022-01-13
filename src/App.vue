@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @getUserText="search" />
+    <Header @getUserText="search" @backHome="backToHome" />
     <Main :apiFilmObjects="moviesArray" :apiTvSeriesObjects="tvSeriesArray" />
   </div>
 </template>
@@ -64,30 +64,35 @@ export default {
         });
       }
 
+    },
+
+    // Chiamata API per i film e le serie TV consigliate (HOME)
+    backToHome: function() {
+      // Chiamata API per i film consigliati
+      axios.get('https://api.themoviedb.org/3/discover/movie', {
+        params: {
+          api_key: this.apiKey,
+          language: "it"
+        }
+      })
+      .then((response) => {
+        this.moviesArray = response.data.results;
+      });
+
+      // Chiamata API per le serie TV consigliate
+      axios.get('https://api.themoviedb.org/3/discover/tv', {
+        params: {
+          api_key: this.apiKey,
+          language: "it"
+        }
+      })
+      .then((response) => {
+        this.tvSeriesArray = response.data.results;
+      });
     }
   },
   created: function() {
-    // Chiamata API per i film consigliati
-    axios.get('https://api.themoviedb.org/3/discover/movie', {
-      params: {
-        api_key: this.apiKey,
-        language: "it"
-      }
-    })
-    .then((response) => {
-      this.moviesArray = response.data.results;
-    });
-
-    // Chiamata API per le serie TV consigliate
-    axios.get('https://api.themoviedb.org/3/discover/tv', {
-      params: {
-        api_key: this.apiKey,
-        language: "it"
-      }
-    })
-    .then((response) => {
-      this.tvSeriesArray = response.data.results;
-    });
+    this.backToHome()
   }
 };
 </script>
