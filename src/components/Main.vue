@@ -4,15 +4,19 @@
 
             <!-- Films -->
             <h2>FILM</h2>
+            <h2 v-if="(apiFilmObjects.length === 0 && apiTvSeriesObjects.length > 0)" class="movies-not-found">NON SONO PRESENTI FILM PER QUESTA RICERCA</h2>
             <div class="films-container">
                 <MovieCard v-for="(movie, index) in apiFilmObjects" :key="index" :singleMovie="movie" type="movie"/>
             </div>
 
             <!-- Series TV -->
             <h2>SERIE TV</h2>
+            <h2 v-if="(apiTvSeriesObjects.length === 0 && apiFilmObjects.length > 0)" class="movies-not-found">NON SONO PRESENTI SERIE TV PER QUESTA RICERCA</h2>
             <div class="series-container">
                 <MovieCard v-for="(series, index) in apiTvSeriesObjects" :key="index" :singleMovie="series" type="tv" />
             </div>
+
+            <h2 v-if="(apiFilmObjects.length === 0 && apiTvSeriesObjects.length === 0)">LA RICERCA NON HA PRODOTTO RISULTATI</h2>
         </div>
     </main>
 </template>
@@ -50,6 +54,10 @@ export default {
                 font-family: $title_text_font;
                 font-size: 24px;
                 font-weight: 800;
+
+                &.movies-not-found {
+                    font-size: 18px;
+                }
             }
 
             .films-container,
