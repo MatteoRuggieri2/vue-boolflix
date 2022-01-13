@@ -40,6 +40,7 @@ export default {
         position: relative;
         overflow-y: auto;
         background-color: black;
+        border: 1px solid black;
 
         .poster,
         .poster-not-found {
@@ -54,10 +55,5 @@ export default {
         &:hover .movie-info {
             display: block;
         }
-
-        // test
-        border: 1px solid black;
-
-        
     }
 </style>

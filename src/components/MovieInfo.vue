@@ -16,12 +16,13 @@
             <li v-else>{{ singleMovieObject.original_language }}</li>
 
             <!-- Vote -->
-            <!-- <li>{{ fullStars }}</li> -->
             <li>
                 <span class="info-title">Voto: </span>
-                <span v-for="(number, index) in 5" :key="index">
-                    <span v-if="(number <= fullStars)" class="full-star-icon"><i class="fas fa-star"></i></span>
-                    <span v-else class="empty-star-icon"><i class="far fa-star"></i></span>
+                <span class="stars-container"> 
+                    <span v-for="(number, index) in 5" :key="index">
+                        <span v-if="(number <= fullStars)" class="full-star-icon"><i class="fas fa-star"></i></span>
+                        <span v-else class="empty-star-icon"><i class="far fa-star"></i></span>
+                    </span>
                 </span>
             </li>
 
@@ -45,7 +46,7 @@ export default {
     data: function() {
         return {
             flagsPathArray: [ 'it', 'en', 'fr' ],
-            fullStars: this.numberOfStars(this.singleMovieObject.vote_average)
+            fullStars: this.numberOfStars(this.singleMovieObject.vote_average)      // Numero di stelle piene
         }
     },
     methods: {
@@ -132,6 +133,10 @@ export default {
                 .flag-container {
                     display: inline-block;
                     width: 30px;
+                }
+
+                .stars-container {
+                    display: inline-block;
                 }
 
                 .full-star-icon {

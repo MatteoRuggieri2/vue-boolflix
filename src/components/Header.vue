@@ -41,7 +41,7 @@ export default {
         height: 60px;
         padding: 0 20px;
         background-color: black;
-        color: white;
+        color: $primary_text_color;
         display: flex;
         justify-content: space-between;
         align-items: center;
