@@ -47,7 +47,7 @@ export default {
                 overflow-x: auto;
 
                 // test
-                border: 3px solid red;
+                // border: 3px solid red;
             }
 
             .series-container {
@@ -55,7 +55,7 @@ export default {
                 overflow-x: auto;
 
                 // test
-                border: 3px solid yellow;
+                // border: 3px solid yellow;
             }
         }
     }

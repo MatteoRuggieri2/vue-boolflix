@@ -34,31 +34,56 @@ export default {
 
     // Chiamata API per i film
     searchedMovies: function() {
-      axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: this.apiKey,
-          query: this.userSearchText
-        }
-      })
-      .then((response) => {
-        this.moviesArray = response.data.results;
-      });
+      if(this.userSearchText.length > 0) {
+        axios.get('https://api.themoviedb.org/3/search/movie', {
+          params: {
+            api_key: this.apiKey,
+            query: this.userSearchText
+          }
+        })
+        .then((response) => {
+          this.moviesArray = response.data.results;
+        });
+      }
 
     },
 
     // Chiamata API per le serie TV
     searchedSeriesTv: function() {
-      axios.get('https://api.themoviedb.org/3/search/tv', {
-        params: {
-          api_key: this.apiKey,
-          query: this.userSearchText
-        }
-      })
-      .then((response) => {
-        this.tvSeriesArray = response.data.results;
-      });
+      if(this.userSearchText.length > 0) {
+        axios.get('https://api.themoviedb.org/3/search/tv', {
+          params: {
+            api_key: this.apiKey,
+            query: this.userSearchText
+          }
+        })
+        .then((response) => {
+          this.tvSeriesArray = response.data.results;
+        });
+      }
 
     }
+  },
+  created: function() {
+    // Chiamata API per i film consigliati
+    axios.get('https://api.themoviedb.org/3/discover/movie', {
+      params: {
+        api_key: this.apiKey
+      }
+    })
+    .then((response) => {
+      this.moviesArray = response.data.results;
+    });
+
+    // Chiamata API per le serie TV consigliate
+    axios.get('https://api.themoviedb.org/3/discover/tv', {
+      params: {
+        api_key: this.apiKey
+      }
+    })
+    .then((response) => {
+      this.tvSeriesArray = response.data.results;
+    });
   }
 };
 </script>

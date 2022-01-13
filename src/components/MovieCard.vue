@@ -35,13 +35,14 @@ export default {
 <style lang="scss" scoped>
 
     .movie-card {
-        width: 15vW;
+        width: 13vW;
         flex-shrink: 0;
         position: relative;
 
-        // .movie-info {
-        //     display: none;
-        // }
+        .poster,
+        .poster-not-found {
+            max-width: 100%;
+        }
 
         &:hover .poster,
         &:hover .poster-not-found {
@@ -53,19 +54,8 @@ export default {
         }
 
         // test
-        border: 3px solid darkcyan;
+        border: 1px solid black;
 
-        .poster-not-found {
-            // width: 342px;
-            max-width: 100%;
-            // height: 513px;
-
-            img {
-                // width: 100%;
-                // height: 100%;
-                // object-fit: cover;
-                // object-position: center;
-            }
-        }
+        
     }
 </style>

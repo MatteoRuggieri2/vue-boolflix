@@ -8,9 +8,10 @@
             
             <!-- Flag -->
             <li v-if="flagImgFounder()">
-                <div class="flag-container">
+                <span>Language: </span>
+                <span class="flag-container">
                     <img :src="require('../assets/img/' + singleMovieObject.original_language + '.png')" :alt="singleMovieObject.original_language + ' flag'">
-                </div>
+                </span>
             </li>
             <li v-else>{{ singleMovieObject.original_language }}</li>
 
@@ -81,7 +82,8 @@ export default {
                 color: white;
 
                 .flag-container {
-                    width: 50px;
+                    display: inline-block;
+                    width: 30px;
                 }
             }
         }
