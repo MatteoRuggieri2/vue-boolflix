@@ -26,6 +26,11 @@ export default {
     }
   },
   methods: {
+
+    // Questa funzione prende il testo scritto dall'utente attraverso l'emit (search) dall'header
+    // e lo inserisce in una variabile all'interno dei data (userSearchText).
+    // Successivamente avvia anche le funzioni che chiamano le API per i film e serie TV.
+    // argomento: Ha bisogno del valore derivante dall'emit "search" dell'header.
     search: function(userText) {
       this.userSearchText = userText;
       this.searchedMovies();
@@ -68,6 +73,7 @@ export default {
 
     // Chiamata API per i film e le serie TV consigliate (HOME)
     backToHome: function() {
+      
       // Chiamata API per i film consigliati
       axios.get('https://api.themoviedb.org/3/discover/movie', {
         params: {
