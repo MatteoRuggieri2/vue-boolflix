@@ -36,26 +36,18 @@ export default {
 <style lang="scss" scoped>
     main {
         height: calc(100vh - 60px);
+        padding-left: 20px;
         background-color: rgb(44, 44, 44);
         color: white;
         overflow-y: auto;
 
         .wrapper {
 
-            .films-container {
-                display: flex;
-                overflow-x: auto;
-
-                // test
-                // border: 3px solid red;
-            }
-
+            .films-container,
             .series-container {
                 display: flex;
                 overflow-x: auto;
-
-                // test
-                // border: 3px solid yellow;
+                padding-right: 20px;
             }
         }
     }

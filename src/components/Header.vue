@@ -1,10 +1,10 @@
 <template>
     <header>
 
-        <div>
-            <i class="fas fa-star"></i>
-            LOGO
-            <i class="fas fa-star"></i>
+        <div class="header-left">
+            <div class="logo">
+                <img src="../assets/img/logo_netflix.png" alt="Logo Netflix">
+            </div>
         </div>
 
         <div class="input-container">
@@ -30,11 +30,19 @@ export default {
 
     header {
         height: 60px;
+        padding: 0 20px;
         background-color: black;
         color: white;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+
+        .header-left {
+
+            .logo {
+                width: 100px;
+            }
+        }
 
         .input-container {
 
