@@ -30,13 +30,13 @@
             <li>
                 <span class="info-title">Attori: </span>
                 <span v-for="(people, index) in cast" :key="people.id">
-                    <span v-if="(index < 4)">{{ people.name }}, </span>
+                    <span v-if="(index < 4)">{{ people.name }}, </span>       <!-- Se sono meno di 4 l'ultimo si vede con la virgola -->
                     <span v-else-if="(index === 4)">{{ people.name }} ...</span>
                 </span>
             </li>
 
             <!-- Generi -->
-            <li>
+            <li>                                    <!-- Devo gestire quando non c'è il genere -->
                 <span class="info-title">Generi: </span>
                 <span v-for="(genre, index) in genres" :key="genre.id">
                     <span v-if="(index < genres.length - 1)">{{ genre.name }}, </span>

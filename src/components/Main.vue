@@ -3,16 +3,14 @@
         <div class="wrapper">
 
             <!-- Films -->
-            <template v-if="(apiFilmObjects.length === 0 && apiTvSeriesObjects.length === 0)"></template>
-            <h2 v-else>FILM</h2>
+            <h2 v-if="(!(apiFilmObjects.length === 0 && apiTvSeriesObjects.length === 0))">FILM</h2>
             <h2 v-if="(apiFilmObjects.length === 0 && apiTvSeriesObjects.length > 0)" class="movies-not-found">NON SONO PRESENTI FILM PER QUESTA RICERCA</h2>
             <div class="films-container">
                 <MovieCard v-for="(movie, index) in apiFilmObjects" :key="index" :singleMovie="movie" type="movie"/>
             </div>
 
             <!-- Series TV -->
-            <template v-if="(apiTvSeriesObjects.length === 0 && apiFilmObjects.length === 0)"></template>
-            <h2 v-else>SERIE TV</h2>
+            <h2 v-if="(!(apiTvSeriesObjects.length === 0 && apiFilmObjects.length === 0))">SERIE TV</h2>
             <h2 v-if="(apiTvSeriesObjects.length === 0 && apiFilmObjects.length > 0)" class="movies-not-found">NON SONO PRESENTI SERIE TV PER QUESTA RICERCA</h2>
             <div class="series-container">
                 <MovieCard v-for="(series, index) in apiTvSeriesObjects" :key="index" :singleMovie="series" type="tv" />

@@ -73,6 +73,7 @@ export default {
 
     // Chiamata API per i film e le serie TV consigliate (HOME)
     backToHome: function() {
+      this.userSearchText = "";     //Al ritorno in home la input si svuota
       
       // Chiamata API per i film consigliati
       axios.get('https://api.themoviedb.org/3/discover/movie', {
@@ -95,6 +96,7 @@ export default {
       .then((response) => {
         this.tvSeriesArray = response.data.results;
       });
+
     }
   },
   created: function() {
