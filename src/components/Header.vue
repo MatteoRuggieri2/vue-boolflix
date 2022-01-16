@@ -32,6 +32,8 @@ export default {
         }
     },
     methods: {
+
+        // Questa funzione riporta la input al valore iniziale quando si torna alla home.
         clearMovieSearch: function() {
             this.userText = '';
         }

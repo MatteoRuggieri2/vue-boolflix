@@ -36,12 +36,15 @@
             </li>
 
             <!-- Generi -->
-            <li>                                    <!-- Devo gestire quando non c'è il genere -->
+            <li>
                 <span class="info-title">Generi: </span>
-                <span v-for="(genre, index) in genres" :key="genre.id">
-                    <span v-if="(index < genres.length - 1)">{{ genre.name }}, </span>
-                    <span v-else-if="(index === genres.length - 1)">{{ genre.name }}.</span>
+                <span v-if="(genres.length > 1)">
+                    <span v-for="(genre, index) in genres" :key="genre.id">
+                        <span v-if="(index < genres.length - 1)">{{ genre.name }}, </span>
+                        <span v-else-if="(index === genres.length - 1)">{{ genre.name }}.</span>
+                    </span>
                 </span>
+                <span v-else>Non specificati.</span>
             </li>
 
             <!-- Overview -->
@@ -145,7 +148,6 @@ export default {
                 font-size: 14px;
 
                 .info-title {
-                    // margin-right: 10px;
                     font-weight: bold;
                     font-size: 18px;
                 }
