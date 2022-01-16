@@ -10,6 +10,7 @@
 
         <div v-else class="poster-not-found">
             <img src="../assets/img/img-notfound.jpg" alt="Poster not found">
+            <div class="movie-title">{{ singleMovie.title || singleMovie.name }}</div>
         </div>
 
         <MovieInfo :singleMovieObject="singleMovie" :cast="castArray" :genres="movieGenres" />
@@ -69,6 +70,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../style/variables.scss';
 
     .movie-card {
         width: 13vW;
@@ -78,9 +80,27 @@ export default {
         background-color: black;
         border: 1px solid black;
 
-        .poster,
+        .poster {
+            max-width: 100%;
+        }
+
         .poster-not-found {
             max-width: 100%;
+            position: relative;
+
+            .movie-title {
+                width: 12vW;
+                max-width: 12vW;
+                padding: 5px 10px 2px;
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: rgba(0, 0, 0, 0.7);
+                font-family: $title_text_font;
+                text-transform: uppercase;
+                text-align: center;
+            }
         }
 
         &:hover .poster,
