@@ -34,7 +34,8 @@ export default {
     data: function() {
         return {
             castArray: [],
-            movieGenres: []
+            movieGenres: [],
+            apiKey: '594f744473899f8902a8ed104f7d9a22'
         }
     },
     methods: {
@@ -45,7 +46,7 @@ export default {
             // Chiamata API per gli attori dei film
             axios.get(`https://api.themoviedb.org/3/${this.type}/${this.singleMovie.id}/credits`, {
                 params: {
-                api_key: '594f744473899f8902a8ed104f7d9a22',
+                api_key: this.apiKey,
                 language: "it"
                 }
             })
@@ -56,7 +57,7 @@ export default {
             // Chiamata API per il genere dei film e delle serie
             axios.get(`https://api.themoviedb.org/3/${this.type}/${this.singleMovie.id}`, {
                 params: {
-                api_key: '594f744473899f8902a8ed104f7d9a22'
+                api_key: this.apiKey
                 }
             })
             .then((response) => {

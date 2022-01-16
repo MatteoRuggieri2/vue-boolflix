@@ -2,13 +2,13 @@
     <header>
 
         <div class="header-left">
-            <div @click="$emit('backHome', true)" class="logo">
+            <div @click="$emit('backHome', true); clearMovieSearch()" class="logo">
                 <img src="../assets/img/logo_netflix.png" alt="Logo Netflix">
             </div>
 
             <div class="links-list">
                 <ul>
-                    <li @click="$emit('backHome', true)">Home</li>
+                    <li @click="$emit('backHome', true); clearMovieSearch()">Home</li>
                     <li>Serie TV</li>
                     <li>Film</li>
                 </ul>
@@ -29,6 +29,11 @@ export default {
     data: function() {
         return {
             userText: '',
+        }
+    },
+    methods: {
+        clearMovieSearch: function() {
+            this.userText = '';
         }
     }
 }
