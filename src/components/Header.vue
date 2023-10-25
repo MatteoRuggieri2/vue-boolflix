@@ -1,11 +1,15 @@
 <template>
     <header>
 
+        <!-- Header Left -->
         <div class="header-left">
+
+            <!-- Logo -->
             <div @click="$emit('backHome', true); clearMovieSearch()" class="logo">
                 <img src="../assets/img/logo_netflix.png" alt="Logo Netflix">
             </div>
 
+            <!-- Links List -->
             <div class="links-list">
                 <ul>
                     <li @click="$emit('backHome', true); clearMovieSearch()">Home</li>
@@ -15,6 +19,7 @@
             </div>
         </div>
 
+        <!-- Header Right -->
         <div class="input-container">
             <input @keyup.enter="$emit('getUserText', userText)" v-model="userText" type="text" placeholder="CERCA UN FILM">
             <span @click="$emit('getUserText', userText)" class="lens-icon"><i class="fas fa-search"></i></span>
